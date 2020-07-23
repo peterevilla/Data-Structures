@@ -38,18 +38,20 @@ class LinkedList:
         value = self.head.get_value()
         self.head = self.head.get_next()
         return value
-    
+
     def remove_tail(self):
         if not self.head:
-            return None
+            return 
+        
         current = self.head
 
         while current.get_next() is not self.tail:
             current = current.get_next()
-            val = self.tail.get_value()
-            self.tail = None
-            self.tail = current
-            return val
+        
+        val = self.tail.get_value()
+        self.tail = None
+        self.tail = current
+        return val
 
     def contains(self, value):
         if not self.head:

@@ -46,10 +46,10 @@ class LinkedList:
 
         while current.get_next() is not self.tail:
             current = current.get_next()
-            val = self.tail.get_value()
-            self.tail = None
-            self.tail = current
-            return val
+        val = self.tail.get_value()
+        self.tail = None
+        self.tail = current
+        return val
 
     def contains(self, value):
         if not self.head:
