@@ -13,8 +13,47 @@ class Node:
         self.next_node = new_next
 
 
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
 
-# class LinkedList:
+    def add_to_tail(self, value):
+        new_node = Node(value, None)
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.set_next(new_node)
+            self.tail = new_node
+
+    def remove_head(self):
+        if not self.head:
+            return None
+        if not self.head.get_next():
+            head = self.head
+            self.head = None
+            self.tail = None
+            return head.get_value()
+        value = self.head.get_value()
+        self.head = self.head.get_next()
+        return value
+
+    def contains(self, value):
+        if not self.head:
+            return False
+        current = self.head
+        while current:
+            if current.get_value() == value:
+                return True
+        current = current.get_next()
+        return False
+
+
+
+
+    
+    # class LinkedList:
 #     def __init__(self, head = None):
 #         self.head = head
 
@@ -61,40 +100,3 @@ class Node:
 #         else:
 #             previous.set_next(current.get_next())
             
-
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-
-    def add_to_tail(self, value):
-        new_node = Node(value, None)
-        if not self.head:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.set_next(new_node)
-            self.tail = new_node
-
-    def remove_head(self):
-        if not self.head:
-            return None
-        if not self.head.get_next():
-            head = self.head
-            self.head = None
-            self.tail = None
-            return head.get_value()
-        value = self.head.get_value()
-        self.head = self.head.get_next()
-        return value
-
-    def contains(self, value):
-        if not self.head:
-            return False
-        current = self.head
-        while current:
-            if current.get_value() == value:
-                return True
-        current = current.get_next()
-        return False
