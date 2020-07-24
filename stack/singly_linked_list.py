@@ -26,6 +26,15 @@ class LinkedList:
         else:
             self.tail.set_next(new_node)
             self.tail = new_node
+    
+    def add_to_head(self, value):
+        new_node = Node(value, None)
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.set_next(self.head)
+            self.head = new_node
 
     def remove_head(self):
         if not self.head:
@@ -60,6 +69,17 @@ class LinkedList:
                 return True
         current = current.get_next()
         return False
+    
+    def get_max(self):
+        if not self.head:
+            return None
+        current = self.head
+        max_value = self.head.value
+        while current:
+            if current.value > max_value:
+                max_value = current.value
+            current = current.next_node
+        return max_value
 
 
 

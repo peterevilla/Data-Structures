@@ -52,24 +52,32 @@ class Queue:
 #QUEUE USING A REGULAR LIST
 queue1 = Queue()
 
-nextQueue = input("enter next number to queue, press r to remove next in queue, press q to quit\n")
+
+
+nextQueue = input("enter next number to queue, press r to remove next in queue, m to get max value, press q to quit\n")
 
 while not nextQueue == 'q':
 
     if nextQueue != 'r':
         queue1.enqueue(int(nextQueue))
-        print(queue1.storage)
+        print('\n')
+        node = queue1.storage.head
+        while node:
+            print (node.value)
+            node = node.get_next()
         
     elif nextQueue == 'r':
         queue1.dequeue()
-        print(queue1.storage)
+        print('\n')
+        node = queue1.storage.head
+        while node:
+            print (node.value)
+            node = node.get_next()
+    elif nextQueue == 'm':
+        maximun = queue1.storage.get_max()
+        print(int(maximun))
     else:
         print('invalid character')
 
     nextQueue = input("enter next number to queue, press r to remove next in queue, press q to quit\n")
 
-print('\n')
-node = queue1.storage.head
-while node:
-    print (node.value)
-    node = node.get_next()
