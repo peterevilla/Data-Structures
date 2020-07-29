@@ -65,8 +65,11 @@ stack2 = Stack()
 stack2.push(5)
 stack2.push(6)
 stack2.push(8)
+stack2.push(8)
+stack2.push(8)
+stack2.push(54)
 stack2.pop()
-stack2.pop()
+
 
 node = stack2.storage.head
 while node:

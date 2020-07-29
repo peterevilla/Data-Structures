@@ -35,13 +35,13 @@ class Queue:
             self.storage.remove_head()
             self.size -= 1
 
-# class Queue:
+# class Queue:3
 #     def __init__(self):
 #         self.size = 0
 #         self.storage = []
     
 #     def __len__(self):
-#         pass
+#         len(self.storage)
 
 #     def enqueue(self, value):
 #         self.storage.insert(0, value)
